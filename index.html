@@ -335,38 +335,41 @@
         </div>
     </div>
     <footer>
-        <h3>Made by Your Mom</h3>
+        <h3>Made by Udhav Dhandia</h3>
     </footer>
 </body>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            console.log(entry)
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
+        $(document).ready(function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            });
+
+            // Observing elements with class .navhide, .introtext, .introimg, .aboutcont, .songshead, .trhide, footer
+            $('.navhide, .introtext, .introimg, .aboutcont, .songshead, .trhide, footer').each(function() {
+                observer.observe(this);
+            });
+
+            const observer2 = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('albumshow');
+                    }
+                });
+            });
+
+            // Observing elements with class .album
+            $('.album').each(function() {
+                observer2.observe(this);
+            });
         });
-    });
-
-    document.querySelectorAll('.navhide').forEach((el) => observer.observe(el));
-    document.querySelectorAll('.introtext').forEach((el) => observer.observe(el));
-    document.querySelectorAll('.introimg').forEach((el) => observer.observe(el));
-    document.querySelectorAll('.aboutcont').forEach((el) => observer.observe(el));
-    document.querySelectorAll('.songshead').forEach((el) => observer.observe(el));
-    document.querySelectorAll('.trhide').forEach((el) => observer.observe(el));
-    document.querySelectorAll('footer').forEach((el) => observer.observe(el));
-
-    const observer2 = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            console.log(entry)
-            if (entry.isIntersecting) {
-                entry.target.classList.add('albumshow');
-            }
-        });
-    });
-
-    document.querySelectorAll('.album').forEach((el) => observer2.observe(el));
-</script>
+    </script>
+</body>
+</html>
 
 </html>
