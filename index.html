@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendrick</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: auto;
+            background-color: #f4f3e7;
+            overflow-x: hidden;
+        }
+
+        nav {
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav-links ul li {
+            display: inline-flex;
+            font-family: 'DM Serif Display', serif;
+            font-size: 30px;
+            margin: 20px 50px 50px 50px;
+        }
+
+        .navhide {
+            opacity: 0;
+            transition: 0.5s ease-in;
+        }
+
+        .nav-links ul li::after {
+            top: 11.5%;
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 6%;
+            transform: scaleX(0);
+            background-color: #d0132d;
+            transition: 0.03s ease-out;
+        }
+
+        .nav-links ul li:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #d0132d;
+        }
+
+        .intro {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .introcont {
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .introimg {
+            scale: 0.8;
+            transition: opacity 0.5s ease-in, scale 0.3s ease-out;
+        }
+
+        .introimg img {
+            width: 350px;
+            transition: 0.5s ease-out;
+        }
+
+        .intro img:hover {
+            width: 380px;
+        }
+
+        .album {
+            opacity: 0;
+            width: 700px;
+            top: 60px;
+            left: -250px;
+            position: absolute;
+            z-index: -1;
+            animation: rotation 10s infinite linear;
+            transition: 0.5s ease-out;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(359deg);
+            }
+        }
+
+        .albumshow {
+            opacity: 1;
+            left: -70px;
+        }
+
+        .introtext {
+            opacity: 0;
+            padding-left: 100px;
+            transition: 0.5s ease-in;
+        }
+
+        .introtext h1 {
+            margin-top: 0;
+            color: #d0132d;
+            font-size: 80px;
+        }
+
+        .introtext p {
+            color: #2a2a2a;
+            font-size: 23px;
+            font-family: 'Cormorant', serif;
+        }
+
+        .about {
+            margin: 170px 0px 150px 0px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .aboutcont {
+            text-align: center;
+            width: 70%;
+            scale: 0.94;
+            opacity: 0;
+            transition: 0.5s ease-out;
+        }
+
+        .aboutcont h1 {
+            color: #d0132d;
+            font-size: 75px;
+        }
+
+        .aboutcont p {
+            margin-top: 100px;
+            text-align: left;
+            color: #2a2a2a;
+            font-size: 28px;
+            font-family: 'Cormorant', serif;
+        }
+
+        .songs {
+            margin: 0px 0px 150px 0px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .songshead{
+            opacity: 0;
+            scale: 0.95;
+            transition: 0.5s ease-out;
+        }
+
+        .songscont {
+            text-align: center;
+            color: #d0132d;
+        }
+
+        .songscont tr:hover {
+            background-color: #f4f3e7;
+        }
+
+        .songscont h1 {
+            font-size: 75px;
+            margin-bottom: 0;
+        }
+
+        .songscont h3 {
+            font-size: 40px;
+            margin-bottom: 130px;
+        }
+
+        .trhide{
+            overflow-x: hidden;
+            opacity: 0;
+            transform: translateX(300px);
+            transition: transform 0.7s ease-out, opacity 0.5s ease-in;
+        }
+
+        .trhide.show{
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .songchart th {
+            font-size: 25px;
+        }
+
+        .songchart td {
+            padding: 50px;
+        }
+
+        .songchart img {
+            width: 100px;
+        }
+
+        footer {
+            height: 40px;
+            background-color: #2a2a2a;
+            color: #f4f3e7;
+            opacity: 0;
+            text-align: center;
+            transition: ease-out 0.5s;
+        }
+
+        .show {
+            opacity: 1;
+            scale: 1;
+            transform: translateX(0px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-links">
+        <ul class="navhide">
+            <li><a href="">Home</a></li>
+            <li><a href="#aboutid">About</a></li>
+            <li><a href="#songsid">Songs</a></li>
+        </ul>
+    </nav>
+    <div id="" class="intro">
+        <div class="introcont">
+            <img class="album" src="album cd.png" alt="">
+            <div class="introimg">
+                <img src="ken.jpg" alt="">
+            </div>
+            <div class="introtext">
+                <h1>The Best Alive</h1>
+                <p>
+                    Kendrick Lamar stands as the epitome of modern rap's excellence. With unparalleled lyrical
+                    dexterity, he
+                    weaves intricate narratives that immerse audiences in his worlds. Lamar's verses transcend music,
+                    addressing societal issues with unwavering honesty. His albums unfold as profound sagas, captivating
+                    hearts and minds alike. Through his unparalleled storytelling and socially conscious verses, Lamar
+                    redefines rap as a medium for change and introspection.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="aboutid" class="about">
+        <div class="aboutcont">
+            <h1>About Kendrick</h1>
+            <p>
+                Renowned for his unparalleled lyrical prowess and unwavering commitment to storytelling, Kendrick Lamar
+                stands as a trailblazing figure in the realm of modern hip-hop. With albums like "good kid, m.A.A.d
+                city" and "To Pimp a Butterfly," Lamar has demonstrated an uncanny ability to craft immersive narratives
+                that delve into societal complexities, personal struggles, and cultural nuances. His music transcends
+                entertainment, provoking thought and igniting conversations on issues ranging from racial injustice to
+                self-discovery. Lamar's artistry continues to reshape the hip-hop landscape, solidifying his legacy as
+                an icon who challenges conventions and pushes the boundaries of the genre.
+            </p>
+        </div>
+    </div>
+    <div id="songsid" class="songs">
+        <div class="songscont">
+            <div class="songshead">
+                <h1>Songs</h1>
+                <h3>( Masterpieces )</h3>
+            </div>
+            <table class="songchart">
+                <tr>
+                    <th></th>
+                    <th>Songs</th>
+                    <th>Albums</th>
+                    <th>Streams</th>
+                    <th>Duration</th>
+                </tr>
+                <tr class="trhide">
+                    <td><img src="money trees.jpeg" alt=""></td>
+                    <td>
+                        <p><b>Money Trees</b></p>
+                        <p>Kendrick Lamar, Jay Rock</p>
+                    </td>
+                    <td>good kid, m.A.A.d city</td>
+                    <td>1,135,537,106</td>
+                    <td>6:26</td>
+                </tr>
+                <tr class="trhide">
+                    <td><img src="pride.jpg" alt=""></td>
+                    <td>
+                        <p><b>Pride</b></p>
+                        <p>Kendrick Lamar</p>
+                    </td>
+                    <td>DAMN.</td>
+                    <td>190,223,180</td>
+                    <td>4:35</td>
+                </tr>
+                <tr class="trhide">
+                    <td><img src="alright.jpg" alt=""></td>
+                    <td>
+                        <p><b>Alright</b></p>
+                        <p>Kendrick Lamar</p>
+                    </td>
+                    <td>To Pimp A Butterfly</td>
+                    <td>47,616,123</td>
+                    <td>3:39</td>
+                </tr>
+                <tr class="trhide">
+                    <td><img src="united in grief.jpeg" alt=""></td>
+                    <td>
+                        <p><b>United in Grief</b></p>
+                        <p>Kendrick Lamar</p>
+                    </td>
+                    <td>Mr. Morale & The Big Steppers</td>
+                    <td>169,100,399</td>
+                    <td>4:15</td>
+                </tr>
+                <tr class="trhide">
+                    <td><img src="swimming pools.png" alt=""></td>
+                    <td>
+                        <p><b>Swimming Pools (Drank)</b></p>
+                        <p>Kendrick Lamar</p>
+                    </td>
+                    <td>Single</td>
+                    <td>571,228,544</td>
+                    <td>4:07</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <h3>Made by Your Mom</h3>
+    </footer>
+</body>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            console.log(entry)
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    });
+
+    document.querySelectorAll('.navhide').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.introtext').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.introimg').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.aboutcont').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.songshead').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.trhide').forEach((el) => observer.observe(el));
+    document.querySelectorAll('footer').forEach((el) => observer.observe(el));
+
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            console.log(entry)
+            if (entry.isIntersecting) {
+                entry.target.classList.add('albumshow');
+            }
+        });
+    });
+
+    document.querySelectorAll('.album').forEach((el) => observer2.observe(el));
+</script>
+
+</html>
